@@ -8,6 +8,16 @@ import os
 
 app = FastAPI()
 
+@app.get("/")
+def home():
+    return {"status": "ok", "service": "line-bot"}
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv("LINE_CHANNEL_ACCESS_TOKEN")
 
 LINE_CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET")
